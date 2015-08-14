@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.shishkov.android.sdvgithubclient">
+
+	<uses-permission android:name="android.permission.INTERNET"/>
+
+	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+	<uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.RECEIVE_SMS"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+	<application
+		android:allowBackup="true"
+		android:icon="@drawable/ic_launcher"
+		android:label="@string/app_name"
+		android:theme="@style/AppTheme">
+
+		<activity
+			android:name=".authorization.controller.Activity.AuthorizationActivity"
+			android:label="@string/app_name"
+			>
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+
+		<activity
+			android:name=".authorization.controller.Activity.LoginActivity"
+			android:configChanges="orientation|keyboardHidden|screenSize"
+			android:label="@string/app_name">
+		</activity>
+
+		<activity
+			android:name=".authorization.controller.Activity.TwoFactorAuthActivity"
+			android:configChanges="orientation|keyboardHidden|screenSize"
+			android:windowSoftInputMode="stateVisible"
+			android:label="@string/two_factor_activity_title">
+		</activity>
+		<activity
+			android:name=".workFlow.controller.activity.RepositoriesActivity"
+			>
+
+		</activity>
+		<activity
+			android:name=".workFlow.controller.activity.CommitsActivity"
+			>
+		</activity>
+
+		<receiver android:name=".authorization.receiver.SmsReceiver">
+			<intent-filter android:priority="999">
+				<action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+			</intent-filter>
+		</receiver>
+
+		<service
+			android:name=".authorization.service.AccountAuthenticatorService"
+			android:exported="false"
+			android:process=":auth">
+			<intent-filter>
+				<action android:name="android.accounts.AccountAuthenticator"/>
+			</intent-filter>
+
+			<meta-data
+				android:name="android.accounts.AccountAuthenticator"
+				android:resource="@xml/authenticator"/>
+		</service>
+
+	</application>
+
+</manifest>

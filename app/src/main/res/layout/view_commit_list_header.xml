@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+	>
+
+	<ImageView
+		android:id="@+id/author_avatar"
+		android:layout_width="120dp"
+		android:layout_height="120dp"
+		android:layout_marginRight="6dp"
+		android:layout_marginTop="16dp"
+		android:layout_alignParentTop="true"
+		android:contentDescription="@string/avatar_content_description"
+		/>
+
+	<TextView
+		android:id="@+id/zero_data_avatar"
+		android:layout_width="120dp"
+		android:layout_height="120dp"
+		android:layout_marginRight="6dp"
+		android:layout_marginTop="16dp"
+		android:layout_alignParentTop="true"
+		android:gravity="center"
+		android:visibility="gone"
+		android:text="@string/zero_data_avatar"
+
+		/>
+
+
+	<TextView
+		android:id="@+id/author_name"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="16dp"
+		android:layout_marginLeft="6dp"
+		android:textSize="20sp"
+		android:textStyle="bold"
+		android:layout_toRightOf="@id/author_avatar"
+		/>
+
+	<LinearLayout
+		android:id="@+id/layout_forks"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:orientation="horizontal"
+		android:layout_below="@+id/author_name"
+		android:layout_toRightOf="@id/author_avatar"
+		>
+
+		<ImageView
+			android:id="@+id/icon_forks"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:src="@drawable/ic_github_forks"
+			android:layout_margin="6dp"
+			android:contentDescription="@string/forks_icon_content_description"
+
+			/>
+
+		<TextView
+			android:id="@+id/num_of_forks"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:layout_gravity="center"
+			android:layout_margin="6dp"
+			/>
+
+	</LinearLayout>
+
+
+	<LinearLayout
+		android:id="@+id/layout_watches"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_toRightOf="@+id/author_avatar"
+		android:layout_below="@id/layout_forks"
+		>
+
+		<ImageView
+			android:id="@+id/icon_watches"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:src="@drawable/ic_github_watches"
+			android:layout_margin="6dp"
+			android:contentDescription="@string/watches_icon_content_description"
+			/>
+
+		<TextView
+			android:id="@+id/num_of_watches"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:layout_gravity="center"
+			android:layout_margin="6dp"
+			/>
+
+
+	</LinearLayout>
+
+
+	<TextView
+		android:id="@+id/repo_description"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="35dp"
+		android:layout_marginBottom="16dp"
+		android:layout_below="@id/layout_watches"
+
+		/>
+
+	<TextView
+		android:id="@+id/commits"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/commits_line_separator"
+		android:textStyle="bold"
+		android:textSize="20sp"
+		android:layout_below="@id/repo_description"
+		/>
+
+	<FrameLayout
+		android:id="@+id/commits_progressBar"
+		android:layout_width="match_parent"
+		android:layout_height="250dp"
+		android:layout_below="@id/commits"
+		android:visibility="gone"
+		>
+
+		<ProgressBar
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			style="?android:attr/progressBarStyle"
+			/>
+	</FrameLayout>
+
+	<include
+		layout="@layout/view_zero_data"
+		android:layout_width="match_parent"
+		android:layout_height="300dp"
+		android:layout_below="@+id/commits"
+		/>
+
+
+</RelativeLayout>

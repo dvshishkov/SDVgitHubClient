@@ -1,0 +1,45 @@
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+*.iws
+.DS_Store
+log/
+target/
+
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+build/
+
+local.properties
+build.xml
+project.properties
+gen-external-apklibs/
+dexguard/
+proguard_logs/
+
+# proguard
+seeds.txt
+class_files.txt
+ununsed.txt
+mapping.txt
+
+.gradle/
+/*/out
+/*/*/build
+/*/*/production
+*.ipr
+*~
+*.swp

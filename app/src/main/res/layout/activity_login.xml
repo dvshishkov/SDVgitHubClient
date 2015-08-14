@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	>
+
+	<include layout="@layout/toolbar"/>
+
+	<ScrollView
+		android:id="@+id/login_scroll_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		>
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="16dp"
+			android:paddingRight="16dp"
+			>
+
+
+			<AutoCompleteTextView
+				android:id="@+id/view_username"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:completionThreshold="1"
+				android:padding="16dp"
+				android:inputType="textEmailAddress"
+				android:imeOptions="actionNext"
+				android:hint="@string/username"
+				/>
+
+			<EditText
+				android:id="@+id/view_password"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="6dp"
+				android:padding="16dp"
+				android:imeOptions="actionDone"
+				android:inputType="textPassword"
+				android:hint="@string/password"
+				/>
+
+			<CheckBox
+				android:id="@+id/show_password_checkBox"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"
+				android:textSize="14sp"
+				android:textColor="@color/text_gray"
+				android:text="@string/show_password"
+				/>
+
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>
